@@ -577,7 +577,7 @@ abstract class ReplicationInternal implements BlockingQueueListener {
             @Override
             public void onCompletion(HttpResponse httpResponse, Object result, Throwable e) {
                 if (serverType == null && httpResponse != null) {
-                    Header serverHeader = httpResponse.getFirstHeader("Server");
+                    Header serverHeader = httpResponse.getFirstHeader("X-Sync-Server");
                     if (serverHeader != null) {
                         String serverVersion = serverHeader.getValue();
                         Log.v(Log.TAG_SYNC, "serverVersion: %s", serverVersion);

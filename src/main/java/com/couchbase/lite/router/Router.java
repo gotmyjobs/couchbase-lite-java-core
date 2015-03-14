@@ -620,7 +620,7 @@ public class Router implements Database.ChangeListener, Database.DatabaseListene
         // NOTE: Line 572-574 of CBL_Router.m is not in CBL Java Core
         //       This check is in sendResponse();
 
-        connection.getResHeader().add("Server", String.format("Couchbase Lite %s", getVersionString()));
+        connection.getResHeader().add("X-Sync-Server", String.format("Couchbase Lite %s", getVersionString()));
 
         // Check for a mismatch between the Accept request header and the response type:
         String accept = connection.getRequestProperty("Accept");
